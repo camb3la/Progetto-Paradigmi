@@ -12,6 +12,7 @@ namespace Paradigmi.Models.Entities
 
         public string Nome { get; set; } = string.Empty;
 
-        
+        public List<Libro> Libri { get; set; }
+
     }
 }

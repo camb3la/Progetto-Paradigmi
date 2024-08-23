@@ -18,5 +18,7 @@ namespace Paradigmi.Models.Entities
 
         public DateTime DataPubblicazione { get; set; }
 
+        public ICollection<Categoria> Categorie {  get; set; }
+
     }
 }
