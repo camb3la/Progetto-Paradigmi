@@ -34,7 +34,13 @@ namespace Progetto_Paradigmi.Controllers
         }
 
 
-
+        [HttpDelete]
+        [Route("delete/{id:int}")]
+        public IActionResult DeleteCategoria(int id)
+        {
+            _categoriaService.DeleteCategoria(id);
+            return Ok();
+        }
 
     }
 }
