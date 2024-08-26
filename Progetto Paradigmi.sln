@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Progetto Paradigmi", "Progetto Paradigmi\Progetto Paradigmi.csproj", "{771EBFDA-5C67-49FA-9B7A-556969D823B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradigmi.Models", "Paradigmi.Models\Paradigmi.Models.csproj", "{951E7C5A-B8B0-4351-BCD7-10B54DACAA3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paradigmi.Models", "Paradigmi.Models\Paradigmi.Models.csproj", "{951E7C5A-B8B0-4351-BCD7-10B54DACAA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradigmi.Application", "Paradigmi.Application\Paradigmi.Application.csproj", "{C32B5DA7-603F-4360-B2F4-2B44C923DF95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{951E7C5A-B8B0-4351-BCD7-10B54DACAA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{951E7C5A-B8B0-4351-BCD7-10B54DACAA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{951E7C5A-B8B0-4351-BCD7-10B54DACAA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32B5DA7-603F-4360-B2F4-2B44C923DF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32B5DA7-603F-4360-B2F4-2B44C923DF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32B5DA7-603F-4360-B2F4-2B44C923DF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32B5DA7-603F-4360-B2F4-2B44C923DF95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,6 +14,8 @@ namespace Paradigmi.Models.Context
 
         public DbSet <Utente> Utente { get; set; }
 
+        public DbSet<Categoria> Categoria { get; set; }
+
         public MyDbContext()
         {
 

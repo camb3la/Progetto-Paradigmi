@@ -16,6 +16,13 @@ namespace Paradigmi.Models.Repositories
 
         }
 
+        public Libro GetLibroNome(string nome)
+        {
+            return _ctx.Libro.First(l => l.Nome == nome);
+        }
+
+        
+
         
     }
 }
