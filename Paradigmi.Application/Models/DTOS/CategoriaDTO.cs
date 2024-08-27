@@ -9,17 +9,15 @@ namespace Paradigmi.Application.Models.DTOS
 {
     public class CategoriaDTO
     {
-        public CategoriaDTO() { }
+        public int Id { get; set; }
+
+        public string Nome { get; set; } = string.Empty;
 
         public CategoriaDTO(Categoria categoria)
         {
             Id = categoria.Id;
             Nome = categoria.Nome;
         }
-
-        public int Id { get; set; }
-
-        public string Nome { get; set; } = string.Empty;
 
     }
 }
