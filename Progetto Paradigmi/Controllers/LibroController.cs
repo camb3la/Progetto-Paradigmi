@@ -44,12 +44,48 @@ namespace Progetto_Paradigmi.Controllers
         }
 
 
+        [HttpPut]
+        [Route("update")]
+        public IActionResult AggiornaLibro(AggiornaLibroRequest request)
+        {
+            var libro = request.ToEntity();
+            _libroService.AggiornaLibro(request.Id, libro);
+
+            var response = new AggiornaLibroResponse();
+            response.Libro = new LibroDTO(libro);
+            return Ok(response);
+        }
+
 
         [HttpGet]
         [Route("get/nome")]
         public Libro GetLibroDaNome(string nome)
         {
             return _libroService.GetLibroNome(nome);
+        }
+
+        [HttpPost]
+        [Route("get/autore")]
+        public async Task<IActionResult> GetLibriDaAutore(GetLibriDaAutoreRequest request)
+        {
+            var libri = await _libroService.GetLibroDaAutore(request.Autore, request.NumeroPagina, request.DimensionePagina);
+            return Ok(libri);
+        }
+
+        [HttpPost]
+        [Route("get/categoria")]
+        public async Task<IActionResult> GetLibriDaCategoria(GetLibriDaCategoriaRequest request)
+        {
+            var libri = await _libroService.GetLibroDaCategoria(request.Categoria, request.NumeroPagina, request.DimensionePagina);
+            return Ok(libri);
+        }
+
+        [HttpPost]
+        [Route("get/data")]
+        public async Task<IActionResult> GetLibriDaDataPubblicazioneAsync(GetLibriDaDataPubblicazioneRequest request)
+        {
+            var libri = await _libroService.GetLibroDaDataPubblicazione(request.DataPubblicazione, request.NumeroPagina, request.DimensionePagina);
+            return Ok(libri);
         }
 
 

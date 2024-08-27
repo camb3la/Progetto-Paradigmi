@@ -22,10 +22,10 @@ namespace Paradigmi.Application.Abstractions
 
         Libro GetLibroNome(string nome);
 
-        List<Libro> GetLibroCategoria(string  categoria);
+        Task<List<Libro>> GetLibroDaAutore(string autore, int numeroPagina, int dimensionePagina);
 
-        List<Libro> GetLibroAutore(string autore);
+        Task<List<Libro>> GetLibroDaCategoria(string categoria, int numeroPagina, int dimensionePagina);
 
-        List<Libro> GetLibroDataPubblicazione(DateTime dataPublicazione);
+        Task<List<Libro>> GetLibroDaDataPubblicazione(DateTime dataPubblicazione, int numeroPagina, int dimensionePagina);
     }
 }

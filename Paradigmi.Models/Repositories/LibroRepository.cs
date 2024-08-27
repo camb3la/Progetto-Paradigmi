@@ -21,8 +21,50 @@ namespace Paradigmi.Models.Repositories
             return _ctx.Libro.First(l => l.Nome == nome);
         }
 
-        
+        public async Task<List<Libro>> GetLibroDaAutore(string autore, int numeroPagina, int dimensionePagina)
+        {
+            var query = _ctx.Libro.Where(b => b.Autore == autore);
+
+            var libri = await query
+                .Skip((numeroPagina - 1) * dimensionePagina)
+                .Take(dimensionePagina)
+                .ToListAsync();
+
+            return libri;
+        }
+
+
+        public async Task<List<Libro>> GetLibriDaCategoria(string categoria, int numeroPagina, int dimensionePagina)
+        {
+            var query = _ctx.Libro.Where(l => l.Categorie.Any(c => c.Nome == categoria));
+
+            var libri = await query
+                .Skip((numeroPagina - 1) * dimensionePagina)
+                .Take(dimensionePagina)
+                .ToListAsync();
+
+            return libri;
+        }
+
+        public async Task<List<Libro>> GetLibriDaDataPubblicazione(DateTime dataPubblicazione, int numeroPagina, int dimensionePagina)
+        {
+            var query = _ctx.Libro.Where(b => b.DataPubblicazione == dataPubblicazione);
+
+            var libri = await query
+                .Skip((numeroPagina - 1) * dimensionePagina)
+                .Take(dimensionePagina)
+                .ToListAsync();
+
+            return libri;
+        }
+
+
+
+
 
         
+
+
+
     }
 }

@@ -36,5 +36,20 @@ namespace Paradigmi.Application.Services
         {
             return _libroRepository.GetLibroNome(nome);
         }
+
+        public async Task<List<Libro>> GetLibroDaAutore(string autore, int numeroPagina, int dimensionePagina)
+        {
+            return await _libroRepository.GetLibroDaAutore(autore, numeroPagina, dimensionePagina);
+        }
+
+        public async Task<List<Libro>> GetLibroDaCategoria(string categoria, int numeroPagina, int dimensionePagina)
+        {
+            return await _libroRepository.GetLibriDaCategoria(categoria, numeroPagina, dimensionePagina);
+        }
+
+        public async Task<List<Libro>> GetLibroDaDataPubblicazione(DateTime dataPubblicazione, int numeroPagina, int dimensionePagina)
+        {
+            return await _libroRepository.GetLibriDaDataPubblicazione(dataPubblicazione, numeroPagina, dimensionePagina);
+        }
     }
 }
