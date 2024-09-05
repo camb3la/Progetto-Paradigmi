@@ -1,4 +1,5 @@
-﻿using Paradigmi.Models.Entities;
+﻿using Paradigmi.Application.Abstractions;
+using Paradigmi.Models.Entities;
 using Paradigmi.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Paradigmi.Application.Services
 {
-    public class LibroService
+    public class LibroService : ILibroService
     {
         private readonly LibroRepository _libroRepository;
         public LibroService(LibroRepository libroRepository)
@@ -32,6 +33,16 @@ namespace Paradigmi.Application.Services
             _libroRepository.Delete(libro);
         }
 
+        public void AggiornaLibro(int id, Libro libro)
+        {
+            
+        }
+
+        public Libro GetLibro(int id)
+        {
+            return _libroRepository.Get(id);
+        }
+
         public Libro GetLibroNome(string nome)
         {
             return _libroRepository.GetLibroNome(nome);
@@ -51,5 +62,7 @@ namespace Paradigmi.Application.Services
         {
             return await _libroRepository.GetLibriDaDataPubblicazione(dataPubblicazione, numeroPagina, dimensionePagina);
         }
+
+     
     }
 }

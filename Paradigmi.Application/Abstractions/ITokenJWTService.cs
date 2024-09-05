@@ -1,4 +1,4 @@
-﻿using Paradigmi.Models.Entities;
+﻿using Paradigmi.Application.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Paradigmi.Application.Abstractions
 {
-    public interface ICategoriaService
+    public interface ITokenJWTService
     {
-        void CreaCategoria(Categoria categoria);
-        void EliminaCategoria(int id);
+        string CreaToken(CreaTokenJWTRequest request);
     }
 }

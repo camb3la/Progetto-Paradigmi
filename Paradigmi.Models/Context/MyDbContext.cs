@@ -26,6 +26,21 @@ namespace Paradigmi.Models.Context
 
         }
 
+        //DESKTOP-1EL088M
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=localhost;Database=master;User Id=manager;Password=a;Trusted_Connection=True;TrustServerCertificate=True;");
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder optionsBuilder)
+        {
+            optionsBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+            base.OnModelCreating(optionsBuilder);
+        }
+
+
+
 
     }
 }
