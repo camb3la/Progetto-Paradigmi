@@ -31,6 +31,12 @@ namespace Paradigmi.Models.Repositories
         
         public void EliminaCategoria(int id)
         {
+            if (CategoriaHaLibri(id))
+            {
+                throw new Exception("La categoria che si vuole eliminare ha dei libri associati");
+            }
+
+
             var categoria = _ctx.Categoria.FirstOrDefault(c => c.Id == id); // Errore se CategorieId non è un nome di colonna valido
             if (categoria != null)
             {
@@ -38,6 +44,13 @@ namespace Paradigmi.Models.Repositories
                 _ctx.SaveChanges();
             }
 
+        }
+
+
+        public bool CategoriaHaLibri(int id)
+        {
+            var categoria = _ctx.Categoria.Include(c => c.Libri).FirstOrDefault(c => c.Id == id);
+            return categoria != null && categoria.Libri.Any();
         }
 
 
