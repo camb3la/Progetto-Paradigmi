@@ -28,24 +28,18 @@ namespace Paradigmi.Models.Repositories
             }
         }
 
-
+        
         public void EliminaCategoria(int id)
         {
-            var categoria = _ctx.Categoria.Include(c => c.Libri).FirstOrDefault(c => c.Id == id);
-
-            if (categoria == null)
+            var categoria = _ctx.Categoria.FirstOrDefault(c => c.Id == id); // Errore se CategorieId non è un nome di colonna valido
+            if (categoria != null)
             {
-                throw new Exception("Categoria con ID: " + id + " non trovata");
-            }
-            else if(categoria.Libri.Count > 0)
-            {
-                throw new InvalidOperationException("Questa categoria ha dei libri associati e non puo essere eliminata");
-            }
-            else
-            {
-                Delete(categoria);
+                _ctx.Categoria.Remove(categoria);
+                _ctx.SaveChanges();
             }
 
         }
+
+
     }
 }

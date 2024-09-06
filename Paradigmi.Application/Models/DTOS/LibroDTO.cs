@@ -19,7 +19,7 @@ namespace Paradigmi.Application.Models.DTOS
         
         public LibroDTO(Libro libro)
         {
-            Id = libro.id;
+            Id = libro.Id;
             Nome = libro.Nome;
             Autore = libro.Autore;
             DataPubblicazione = libro.DataPubblicazione;

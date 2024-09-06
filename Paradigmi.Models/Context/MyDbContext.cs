@@ -33,10 +33,12 @@ namespace Paradigmi.Models.Context
             base.OnConfiguring(optionsBuilder);
         }
 
-        protected override void OnModelCreating(ModelBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
-            base.OnModelCreating(optionsBuilder);
+            modelBuilder.Entity<Libro>()
+                .HasMany(l => l.Categorie)
+                .WithMany(c => c.Libri)
+                .UsingEntity(j => j.ToTable("LibroCategoria"));
         }
 
 

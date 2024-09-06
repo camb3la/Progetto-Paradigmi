@@ -8,7 +8,7 @@ namespace Paradigmi.Models.Entities
 {
     public class Libro
     {
-        public int id {  get; set; }
+        public int Id {  get; set; }
 
         public string Nome { get; set; } = string.Empty;
 
