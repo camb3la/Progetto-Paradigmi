@@ -32,7 +32,8 @@ namespace Paradigmi.Application.Services
 
         public void AggiornaLibro(int id, Libro libro)
         {
-            
+            _libroRepository.AggiornaLibro(id, libro);
+            _libroRepository.Save();
         }
 
         public Libro GetLibro(int id)

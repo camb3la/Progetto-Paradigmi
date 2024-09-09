@@ -16,6 +16,18 @@ namespace Paradigmi.Models.Repositories
 
         }
 
+        public void AggiornaLibro(int id, Libro libro)
+        {
+            var libroDaAggiornare = _ctx.Libro.Find(id);
+            libroDaAggiornare.Nome = libro.Nome;
+            libroDaAggiornare.Autore = libro.Autore;
+            libroDaAggiornare.DataPubblicazione = libro.DataPubblicazione;
+            libroDaAggiornare.Editore = libro.Editore;
+
+            Update(libroDaAggiornare);
+        }
+
+
         public Libro GetLibroNome(string nome)
         {
             return _ctx.Libro.First(l => l.Nome == nome);
