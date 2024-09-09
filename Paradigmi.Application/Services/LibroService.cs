@@ -20,17 +20,14 @@ namespace Paradigmi.Application.Services
         public void CreaLibro(Libro libro)
         {
             _libroRepository.Add(libro);
-        }
-
-        public void EliminaLibro(Libro libro)
-        {
-            _libroRepository.Delete(libro);
+            _libroRepository.Save();
         }
 
         public void EliminaLibro(int id)
         {
             var libro = _libroRepository.Get(id);
             _libroRepository.Delete(libro);
+            _libroRepository.Save();
         }
 
         public void AggiornaLibro(int id, Libro libro)

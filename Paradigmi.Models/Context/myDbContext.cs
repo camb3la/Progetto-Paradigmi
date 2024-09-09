@@ -26,6 +26,33 @@ namespace Paradigmi.Models.Context
 
         }
 
+        //DESKTOP-1EL088M
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=localhost;Database=master;User Id=manager;Password=a;Trusted_Connection=True;TrustServerCertificate=True;");
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Libro>()
+        .HasMany(l => l.Categorie)
+        .WithMany(c => c.Libri)
+        .UsingEntity<Dictionary<string, object>>(
+            "LibroCategoria",  // Nome della tabella di join
+            j => j.HasOne<Categoria>().WithMany().HasForeignKey("CategoriaId"), // Configurazione della chiave esterna per Categoria
+            j => j.HasOne<Libro>().WithMany().HasForeignKey("LibroId"), // Configurazione della chiave esterna per Libro
+            j =>
+            {
+                j.ToTable("LibroCategoria"); // Assicurati che il nome della tabella sia corretto
+                j.Property<int>("LibroId").HasColumnName("LibroId"); // Specifica il nome della colonna se diverso
+                j.Property<int>("CategoriaId").HasColumnName("CategoriaId"); // Specifica il nome della colonna se diverso
+            }
+        );
+        }
+
+
+
 
     }
 }
