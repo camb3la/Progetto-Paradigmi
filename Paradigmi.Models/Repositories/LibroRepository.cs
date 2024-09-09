@@ -16,6 +16,23 @@ namespace Paradigmi.Models.Repositories
 
         }
 
+        public void CreaLibro(Libro libro, ICollection<string> nomicategorie)
+        {
+            var categorie = _ctx.Categoria.Where(c => nomicategorie.Contains(c.Nome)).ToList();
+
+            // Verifica che tutte le categorie siano state trovate
+            if (categorie.Count != nomicategorie.Count)
+            {
+                throw new Exception("Una o più categorie non sono state trovate.");
+            }
+
+            libro.Categorie = categorie;
+
+            _ctx.Libro.Add(libro);
+
+            _ctx.SaveChanges();
+        }
+
         public void AggiornaLibro(int id, Libro libro)
         {
             var libroDaAggiornare = _ctx.Libro.Find(id);

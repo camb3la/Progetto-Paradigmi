@@ -33,7 +33,7 @@ namespace Paradigmi.Models.Repositories
         {
             if (CategoriaHaLibri(id))
             {
-                throw new Exception("La categoria che si vuole eliminare ha dei libri associati");
+                throw new InvalidOperationException("La categoria che si vuole eliminare ha dei libri associati");
             }
 
 

@@ -28,7 +28,7 @@ namespace Progetto_Paradigmi.Controllers
         public IActionResult CreateLibro(CreaLibroRequest request)
         {
             var libro = request.ToEntity();
-            _libroService.CreaLibro(libro);
+            _libroService.CreaLibro(libro, request.Categorie);
 
             var response = new CreaLibroResponse();
             response.Libro = new LibroDTO(libro);

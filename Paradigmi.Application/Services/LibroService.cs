@@ -17,9 +17,9 @@ namespace Paradigmi.Application.Services
             _libroRepository = libroRepository;
         }
 
-        public void CreaLibro(Libro libro)
+        public void CreaLibro(Libro libro, ICollection<string> categorie )
         {
-            _libroRepository.Add(libro);
+            _libroRepository.CreaLibro(libro, categorie);
             _libroRepository.Save();
         }
 

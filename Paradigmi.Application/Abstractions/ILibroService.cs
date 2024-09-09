@@ -10,7 +10,7 @@ namespace Paradigmi.Application.Abstractions
     public interface ILibroService
     {
 
-        void CreaLibro(Libro libro);
+        void CreaLibro(Libro libro, ICollection<string> categorie);
 
         void AggiornaLibro(int id, Libro libro);
 
