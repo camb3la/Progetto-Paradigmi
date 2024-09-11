@@ -44,9 +44,9 @@ namespace Paradigmi.Models.Context
             j => j.HasOne<Libro>().WithMany().HasForeignKey("LibroId"), // Configurazione della chiave esterna per Libro
             j =>
             {
-                j.ToTable("LibroCategoria"); // Assicurati che il nome della tabella sia corretto
-                j.Property<int>("LibroId").HasColumnName("LibroId"); // Specifica il nome della colonna se diverso
-                j.Property<int>("CategoriaId").HasColumnName("CategoriaId"); // Specifica il nome della colonna se diverso
+                j.ToTable("LibroCategoria");
+                j.Property<int>("LibroId").HasColumnName("LibroId"); 
+                j.Property<int>("CategoriaId").HasColumnName("CategoriaId");
             }
         );
         }
