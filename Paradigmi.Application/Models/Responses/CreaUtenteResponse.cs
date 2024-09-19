@@ -9,6 +9,6 @@ namespace Paradigmi.Application.Models.Responses
 {
     public class CreaUtenteResponse
     {
-        public UtenteDTO Utente { get; set; } = null;
+        public UtenteDTO Utente { get; set; } = null!;
     }
 }

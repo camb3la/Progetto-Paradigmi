@@ -15,7 +15,7 @@ namespace Paradigmi.Application.Models.DTOS
         public string Autore { get; set; } = string.Empty;
         public DateTime DataPubblicazione { get; set; }
         public string Editore { get; set; } = string.Empty;
-        public virtual ICollection<Categoria> Categorie { get; set; }
+        public virtual ICollection<Categoria>? Categorie { get; set; }
         
         public LibroDTO(Libro libro)
         {

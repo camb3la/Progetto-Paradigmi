@@ -14,7 +14,7 @@ namespace Paradigmi.Models.Entities
         public string Nome { get; set; } = string.Empty;
 
         [JsonIgnore]
-        public ICollection<Libro> Libri { get; set; }
+        public ICollection<Libro>? Libri { get; set; }
 
     }
 }

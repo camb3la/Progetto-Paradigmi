@@ -17,7 +17,7 @@ namespace Paradigmi.Application.Models.Requests
 
         public string Editore { get; set; } = string.Empty;
 
-        public ICollection<string> Categorie {  get; set; }
+        public ICollection<string>? Categorie {  get; set; }
 
         public Libro ToEntity()
         {
