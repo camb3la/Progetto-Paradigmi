@@ -28,7 +28,7 @@ namespace Progetto_Paradigmi.Controllers
         public IActionResult CreateLibro(CreaLibroRequest request)
         {
             var libro = request.ToEntity();
-            _libroService.CreaLibro(libro, request.Categorie);
+            _libroService.CreaLibro(libro, request.Categorie!);
 
             var response = new CreaLibroResponse();
             response.Libro = new LibroDTO(libro);
@@ -68,7 +68,7 @@ namespace Progetto_Paradigmi.Controllers
         [Route("get/autore")]
         public async Task<IActionResult> GetLibriDaAutore(GetLibriDaAutoreRequest request)
         {
-            var libri = await _libroService.GetLibroDaAutore(request.Autore, request.NumeroPagina, request.DimensionePagina);
+            var libri = await _libroService.GetLibroDaAutore(request.Autore!, request.NumeroPagina, request.DimensionePagina);
             return Ok(libri);
         }
 

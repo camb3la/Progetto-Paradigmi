@@ -36,6 +36,11 @@ namespace Paradigmi.Models.Repositories
         public void AggiornaLibro(int id, Libro libro)
         {
             var libroDaAggiornare = _ctx.Libro.Find(id);
+            if (libroDaAggiornare == null)
+            {
+                return;
+            }
+
             libroDaAggiornare.Nome = libro.Nome;
             libroDaAggiornare.Autore = libro.Autore;
             libroDaAggiornare.DataPubblicazione = libro.DataPubblicazione;
@@ -65,7 +70,7 @@ namespace Paradigmi.Models.Repositories
 
         public async Task<List<Libro>> GetLibriDaCategoria(string categoria, int numeroPagina, int dimensionePagina)
         {
-            var query = _ctx.Libro.Where(l => l.Categorie.Any(c => c.Nome == categoria));
+            var query = _ctx.Libro.Where(l => l.Categorie!.Any(c => c.Nome == categoria));
 
             var libri = await query
                 .Skip((numeroPagina - 1) * dimensionePagina)

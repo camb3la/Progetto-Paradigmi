@@ -31,7 +31,7 @@ namespace Paradigmi.Models.Repositories
             _ctx.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
         }
 
-        public T Get(object id)
+        public T? Get(object id)
         {
             return _ctx.Set<T>().Find(id);
         }
@@ -40,6 +40,8 @@ namespace Paradigmi.Models.Repositories
         {
             _ctx.SaveChanges();
         }
+
+
 
     }
 }

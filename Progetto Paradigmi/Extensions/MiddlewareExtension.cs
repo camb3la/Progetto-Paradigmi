@@ -4,6 +4,8 @@
     {
         public static WebApplication? AddWebMiddleware(this WebApplication? app)
         {
+            if (app == null) return null;
+
             if (app.Environment.IsDevelopment())    // Attiva Swagger solo in ambiente di sviluppo per la documentazione API
             {
                 app.UseSwagger();

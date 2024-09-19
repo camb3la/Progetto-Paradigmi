@@ -50,7 +50,7 @@ namespace Paradigmi.Models.Repositories
         public bool CategoriaHaLibri(int id)
         {
             var categoria = _ctx.Categoria.Include(c => c.Libri).FirstOrDefault(c => c.Id == id);
-            return categoria != null && categoria.Libri.Any();
+            return categoria != null && categoria.Libri!.Any();
         }
 
 

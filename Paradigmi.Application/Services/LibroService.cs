@@ -26,6 +26,11 @@ namespace Paradigmi.Application.Services
         public void EliminaLibro(int id)
         {
             var libro = _libroRepository.Get(id);
+            if (libro == null)
+            {
+                return;
+            }
+
             _libroRepository.Delete(libro);
             _libroRepository.Save();
         }
@@ -36,10 +41,7 @@ namespace Paradigmi.Application.Services
             _libroRepository.Save();
         }
 
-        public Libro GetLibro(int id)
-        {
-            return _libroRepository.Get(id);
-        }
+        
 
         public Libro GetLibroNome(string nome)
         {

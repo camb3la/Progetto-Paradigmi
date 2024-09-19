@@ -17,7 +17,7 @@ namespace Paradigmi.Models.Repositories
             _ctx = ctx;
         }
 
-        public Utente GetUtente(string email, string password)
+        public Utente? GetUtente(string email, string password)
         {
             var utente = _ctx.Utente.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
             return utente;

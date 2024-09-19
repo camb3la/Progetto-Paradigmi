@@ -16,8 +16,6 @@ namespace Paradigmi.Application.Abstractions
 
         void EliminaLibro(int id);
 
-        Libro GetLibro(int id);
-
         Libro GetLibroNome(string nome);
 
         Task<List<Libro>> GetLibroDaAutore(string autore, int numeroPagina, int dimensionePagina);
